@@ -1,0 +1,6 @@
+tokenring: tokenring.c
+    gcc -Wall -Wuninitialized -Werror -o tokenring tokenring.c
+
+clean:
+    $(RM) *.o tokenring
+    $(RM) pipe*to*

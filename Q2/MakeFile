@@ -1,0 +1,7 @@
+txt2epub: txt2epub.c
+    gcc -Wall -Wuninitialized -Werror -o txt2epub txt2epub.c
+
+clean:
+    $(RM) *.o txt2epub
+    $(RM) *.zip
+    $(RM) *.epub

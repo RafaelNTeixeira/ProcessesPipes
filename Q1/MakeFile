@@ -1,0 +1,5 @@
+samples: samples.c
+    gcc -Wall -Wuninitialized -Werror -o samples samples.c
+
+clean:
+    $(RM) *.o samples

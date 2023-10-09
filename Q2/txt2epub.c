@@ -5,12 +5,10 @@
 #define MAX_STR_SIZE
 
 int main(int argc, char *argv[] ){
-
     char* zip[argc+4];
-
     pid_t pid;
-    for(int j=0 ; j < argc - 1;j++){
 
+    for(int j=0 ; j < argc - 1;j++){
         char* org_file = (char*)malloc(MAX_STR_SIZE sizeof(char));
         strcpy(org_file,argv[j+1]);
         int org_file_len = strlen(org_file);
@@ -29,15 +27,13 @@ int main(int argc, char *argv[] ){
             execvp("pandoc", parametros);
             exit(1);
         }
-        else{
-
+        else {
             if (waitpid(pid, NULL, 0) == -1){
                 perror("waitpid");
                 return EXIT_FAILURE;
             }
             zip[j+2] = malloc((strlen(file_epub)+1) * sizeof(char));
             strcpy(zip[j+2], file_epub);
-
         }
     }
     zip[0] = "zip";
@@ -46,3 +42,4 @@ int main(int argc, char *argv[] ){
     zip[argc+3] = NULL;
     execvp(zip[0], zip);
 }
+
